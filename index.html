@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,42 +12,43 @@
     canvas { display: block; background: #111827; /* bg-neutral-900 */ cursor: crosshair; width: 100%; height: 100%; }
 
     /* Controls Panel Container & Styling */
-    #controls-container { position: absolute; top: 0; left: 0; bottom: 0; z-index: 10; display: flex; align-items: flex-start; padding: 0.75rem; pointer-events: none; }
+    #controls-container { position: absolute; top: 0; left: 0; bottom: 0; z-index: 10; display: flex; align-items: flex-start; padding: 0.5rem; pointer-events: none; }
     #controls {
-        background: rgba(41, 52, 70, 0.9); backdrop-filter: blur(5px); color: white; padding: 0.75rem; border-radius: 8px;
+        background: rgba(41, 52, 70, 0.9); backdrop-filter: blur(5px); color: white; padding: 0.5rem; border-radius: 6px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid rgba(100, 116, 139, 0.7);
-        max-height: calc(100vh - 1.5rem); overflow-y: auto; overflow-x: hidden;
-        width: 280px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: calc(100vh - 1rem); overflow-y: auto; overflow-x: hidden;
+        width: 270px; transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
         transform: translateX(0); opacity: 1; pointer-events: auto;
-        scrollbar-width: thin; scrollbar-color: #6b7280 #374151; /* Firefox scrollbar */
+        scrollbar-width: thin; scrollbar-color: #6b7280 #374151;
     }
-    #controls.collapsed { transform: translateX(calc(-100% - 20px)); opacity: 0; pointer-events: none; }
-    #controls::-webkit-scrollbar { width: 6px; } /* Webkit scrollbar */
+    #controls.collapsed { transform: translateX(calc(-100% - 16px)); opacity: 0; pointer-events: none; }
+    #controls::-webkit-scrollbar { width: 5px; }
     #controls::-webkit-scrollbar-track { background: #374151; border-radius: 3px; }
     #controls::-webkit-scrollbar-thumb { background-color: #6b7280; border-radius: 3px; border: 1px solid #374151; }
 
     /* Panel Toggle Button */
     #toggle-controls-btn {
-        position: absolute; top: 0.75rem; left: calc(280px + 0.75rem + 0.5rem);
+        position: absolute; top: 0.5rem; left: calc(270px + 0.5rem + 0.5rem);
         background: rgba(41, 52, 70, 0.8); backdrop-filter: blur(3px); border: 1px solid rgba(100, 116, 139, 0.7);
-        color: white; padding: 0.3rem 0.6rem; border-radius: 0 4px 4px 0;
+        color: white; padding: 0.25rem 0.5rem; border-radius: 0 4px 4px 0;
         cursor: pointer; z-index: 11; transition: left 0.3s ease-in-out, background-color 0.2s;
-        pointer-events: auto; font-size: 0.8rem; box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
+        pointer-events: auto; font-size: 0.75rem; box-shadow: 2px 0px 5px rgba(0,0,0,0.2);
     }
     #toggle-controls-btn:hover { background-color: rgba(61, 72, 90, 0.9); }
-    #controls.collapsed + #toggle-controls-btn { left: 0.75rem; border-radius: 4px; }
+    #controls.collapsed + #toggle-controls-btn { left: 0.5rem; border-radius: 4px; }
 
-    /* Custom range input styling */
-    input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; background: #4a5568; border-radius: 9999px; outline: none; opacity: 0.8; transition: opacity .2s; cursor: pointer; margin-top: 2px; margin-bottom: 2px;}
+    /* Form Elements */
+    input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 5px; background: #4a5568; border-radius: 9999px; outline: none; opacity: 0.8; transition: opacity .2s; cursor: pointer; margin-top: 1px; margin-bottom: 1px;}
     input[type="range"]:hover { opacity: 1; }
-    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
-    input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; background: #3b82f6; border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
-    /* Style select dropdown */
-     select { background-color: #4a5568; border: 1px solid #6b7280; color: white; padding: 2px 6px; border-radius: 4px; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ffffff"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>'); background-repeat: no-repeat; background-position: right 0.3rem center; background-size: 1.2em 1.2em; padding-right: 2rem; width: 100%; font-size: 0.875rem; }
+    input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 14px; height: 14px; background: #3b82f6; border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
+    input[type="range"]::-moz-range-thumb { width: 14px; height: 14px; background: #3b82f6; border-radius: 50%; cursor: pointer; border: none; box-shadow: 0 0 2px rgba(0,0,0,0.5); }
+     select { background-color: #4a5568; border: 1px solid #6b7280; color: white; padding: 1px 4px; border-radius: 4px; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23ffffff"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>'); background-repeat: no-repeat; background-position: right 0.2rem center; background-size: 1.1em 1.1em; padding-right: 1.8rem; width: 100%; font-size: 0.8rem; }
      select:focus { outline: none; border-color: #3b82f6; box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5); }
-     /* Button text size */
-     .tool-btn { font-size: 0.75rem; }
-     .action-btn { font-size: 0.875rem; }
+     .tool-btn { font-size: 0.7rem; padding: 2px 6px; }
+     .action-btn { font-size: 0.8rem; padding: 3px 8px; }
+     .label-value-pair { display: flex; justify-content: space-between; align-items: center; }
+     .control-group h3 { font-size: 0.875rem; margin-bottom: 2px; }
+     .control-group label, .control-group .text-xs { font-size: 0.75rem; margin-top: 2px; }
      /* Tooltip */
     #tooltip { position: absolute; background: rgba(0,0,0,0.7); color: white; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; pointer-events: none; display: none; white-space: nowrap; z-index: 100; }
   </style>
@@ -61,58 +61,63 @@
 <!-- Container for Controls and Toggle Button -->
 <div id="controls-container">
     <!-- Controls Panel -->
-    <div id="controls" class="flex flex-col gap-y-3 text-sm">
-      <h2 class="text-base font-semibold text-center border-b border-neutral-600 pb-1.5 mb-1 sticky top-0 bg-[rgba(41,52,70,0.9)] z-10 -mt-3 pt-3 -mx-3 px-3">Controls</h2>
+    <div id="controls" class="flex flex-col gap-y-2 text-sm">
+      <h2 class="text-sm font-semibold text-center border-b border-neutral-600 pb-1 mb-1 sticky top-0 bg-[rgba(41,52,70,0.9)] z-10 -mt-2 pt-2 -mx-2 px-2">Controls</h2>
 
       <!-- Wave Generation Group -->
-      <div class="control-group flex flex-col gap-y-2 border-b border-neutral-700 pb-2 px-0.5">
-         <h3 class="font-medium text-sm mb-1 text-neutral-300">Wave Generation</h3>
-         <div class="flex items-center justify-between text-xs"> <label for="pitchSlider" class="font-medium text-neutral-300 mr-2">Wave Pitch:</label> <span id="pitchValue" class="font-bold text-blue-400">4.0</span> </div>
-         <input type="range" id="pitchSlider" min="0.5" max="15" value="4" step="0.5" class="w-full h-1.5" title="Adjusts the spatial frequency of generated waves">
-         <button data-tool="wave" class="tool-btn w-full mt-1 px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Wave Creation Tool (Click/Drag on Canvas)">Create Wave Tool</button>
+      <div class="control-group flex flex-col gap-y-1.5 border-b border-neutral-700 pb-1.5 px-0.5">
+         <h3>Wave Generation</h3>
+         <div class="label-value-pair text-xs"> <label for="pitchSlider" class="font-medium text-neutral-300 mr-2">Pitch:</label> <span id="pitchValue" class="font-bold text-blue-400">4.0</span> </div>
+         <input type="range" id="pitchSlider" min="0.5" max="15" value="4" step="0.5" class="w-full h-1.5" title="Wave Frequency">
+         <button data-tool="wave" class="tool-btn w-full mt-1 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Wave Creation Tool">Create Wave Tool</button>
       </div>
 
        <!-- Material Tools Group -->
-       <div class="control-group flex flex-col gap-y-2 border-b border-neutral-700 pb-2 px-0.5">
-           <h3 class="font-medium text-sm mb-1 text-neutral-300">Material Tools</h3>
-           <div class="grid grid-cols-3 gap-1.5">
-             <button data-tool="wall" class="tool-btn px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Wall Tool">Wall</button>
-             <button data-tool="absorber" class="tool-btn px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Absorber Tool">Absorber</button>
-             <button data-tool="erase" class="tool-btn px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Eraser Tool">Erase</button>
+       <div class="control-group flex flex-col gap-y-1.5 border-b border-neutral-700 pb-1.5 px-0.5">
+           <h3>Material Tools</h3>
+           <div class="grid grid-cols-2 gap-1">
+             <button data-tool="wall" class="tool-btn focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Wall Tool">Wall</button>
+             <button data-tool="absorber" class="tool-btn focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Absorber Tool">Absorber</button>
+             <button data-tool="erase" class="tool-btn col-span-2 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Eraser Tool">Erase Material</button>
            </div>
-           <div class="flex items-center justify-between text-xs mt-1"> <label for="brushSizeSlider" class="font-medium text-neutral-300 mr-2">Brush Size:</label> <span id="brushSizeValue" class="font-bold text-blue-400">3</span> </div>
-           <input type="range" id="brushSizeSlider" min="1" max="15" value="3" step="1" class="w-full h-1.5" title="Adjust size for Wall, Absorber, Eraser tools">
+           <div class="label-value-pair text-xs mt-1"> <label for="brushSizeSlider" class="font-medium text-neutral-300 mr-2">Brush Size:</label> <span id="brushSizeValue" class="font-bold text-blue-400">3</span> </div>
+           <input type="range" id="brushSizeSlider" min="1" max="15" value="3" step="1" class="w-full h-1.5" title="Brush Size">
       </div>
 
-       <!-- View & Interaction Group -->
-       <div class="control-group flex flex-col gap-y-2 border-b border-neutral-700 pb-2 px-0.5">
-           <h3 class="font-medium text-sm mb-1 text-neutral-300">View & Interaction</h3>
-            <div class="grid grid-cols-2 gap-1.5">
-                <button data-tool="pan" class="tool-btn px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Pan Tool (Shift+Drag or Middle Click Drag)">Pan Tool</button>
-                <button data-tool="listener" class="tool-btn px-2 py-1 rounded bg-neutral-600 hover:bg-neutral-500 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Select Listener Tool (Click/Drag to Move)">Listener Tool</button>
-           </div>
-            <button id="reset-view" class="action-btn w-full mt-1 px-3 py-1 rounded-md bg-blue-600 hover:bg-blue-500 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Reset view zoom and position to default">Reset View</button>
-           <div class="text-xs text-center text-neutral-500 mt-1">Zoom: Mouse Wheel</div>
-       </div>
-
-       <!-- Audio Group -->
-       <div class="control-group flex flex-col gap-y-2 border-b border-neutral-700 pb-2 px-0.5">
-            <h3 class="font-medium text-sm mb-1 text-neutral-300">Audio Output</h3>
-            <button id="toggle-audio" class="action-btn w-full px-3 py-1 rounded-md bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Toggle audio output on/off">Enable Audio</button>
-            <div class="flex items-center justify-between text-xs mt-1"> <label for="volumeSlider" class="font-medium text-neutral-300 mr-2">Volume:</label> <span id="volumeValue" class="font-bold text-green-400">0.6</span> </div>
-            <input type="range" id="volumeSlider" min="0" max="1" value="0.6" step="0.05" class="w-full h-1.5" title="Adjust master audio volume">
-            <label for="oscillatorTypeSelect" class="font-medium text-neutral-300 text-xs mt-1">Waveform:</label>
-            <select id="oscillatorTypeSelect" title="Select the type of audio waveform"> <option value="sine" selected>Sine</option> <option value="square">Square</option> <option value="sawtooth">Sawtooth</option> <option value="triangle">Triangle</option> </select>
+      <!-- Audio Group -->
+       <div class="control-group flex flex-col gap-y-1.5 border-b border-neutral-700 pb-1.5 px-0.5">
+            <h3>Audio</h3>
+            <button id="toggle-audio" class="action-btn w-full focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Toggle audio output">Enable Audio</button>
+            <div class="label-value-pair text-xs mt-1"> <label for="volumeSlider" class="font-medium text-neutral-300 mr-2">Volume:</label> <span id="volumeValue" class="font-bold text-green-400">0.6</span> </div>
+            <input type="range" id="volumeSlider" min="0" max="1" value="0.6" step="0.05" class="w-full h-1.5" title="Master Volume">
+            <label for="audioPresetSelect" class="text-xs mt-1">Sound Preset:</label>
+            <select id="audioPresetSelect" title="Select Audio Preset"> <option value="custom" selected>Custom</option> </select>
+            <label for="oscillatorTypeSelect" class="text-xs mt-1">Waveform:</label>
+            <select id="oscillatorTypeSelect" title="Audio Waveform"> <option value="sine" selected>Sine</option> <option value="square">Square</option> <option value="sawtooth">Sawtooth</option> <option value="triangle">Triangle</option> </select>
+            <label for="filterTypeSelect" class="text-xs mt-1">Filter Type:</label>
+            <select id="filterTypeSelect" title="Audio Filter Type"> <option value="allpass">None</option> <option value="lowpass" selected>Lowpass</option> <option value="highpass">Highpass</option> <option value="bandpass">Bandpass</option> <option value="notch">Notch</option> <option value="peaking">Peaking</option> </select>
+             <div class="label-value-pair text-xs mt-1"> <label for="filterFreqSlider" class="font-medium text-neutral-300 mr-2">Filter Freq:</label> <span id="filterFreqValue" class="font-bold text-purple-400">5000</span> Hz </div>
+             <input type="range" id="filterFreqSlider" min="0" max="1" value="0.75" step="0.001" class="w-full h-1.5" title="Filter Frequency (Log Scale)">
+             <div class="label-value-pair text-xs mt-1"> <label for="filterQSlider" class="font-medium text-neutral-300 mr-2">Filter Q:</label> <span id="filterQValue" class="font-bold text-purple-400">1.0</span></div>
+             <input type="range" id="filterQSlider" min="0.01" max="30" value="1" step="0.01" class="w-full h-1.5" title="Filter Resonance/Bandwidth">
+            <div class="text-xs text-neutral-400 mt-1">Drag L/R markers to move listeners.</div>
        </div>
 
        <!-- Simulation Settings Group -->
-       <div class="control-group flex flex-col gap-y-2 pt-1 px-0.5">
-            <h3 class="font-medium text-sm mb-1 text-neutral-300">Simulation Settings</h3>
-            <div class="flex items-center justify-between text-xs"> <label for="resolutionSlider" class="font-medium text-neutral-300 mr-2">Cell Size:</label> <span id="resolutionValue" class="font-bold text-orange-400">5</span> px </div>
-            <input type="range" id="resolutionSlider" min="2" max="15" value="5" step="1" class="w-full h-1.5" title="Adjust simulation grid cell size (lower = higher resolution, requires reset)">
-            <label for="visualizationModeSelect" class="font-medium text-neutral-300 text-xs mt-1">Visualization:</label>
-            <select id="visualizationModeSelect" title="Choose how waves are visualized"> <option value="phase" selected>Phase Color</option> <option value="bw">Black & White</option> <option value="spectrum">Spectrum</option> <option value="schlieren">Schlieren</option> <option value="log_intensity">Log Intensity</option> </select>
-            <button id="clear-all" class="action-btn w-full px-3 py-1 rounded-md bg-red-600 hover:bg-red-500 mt-2 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Clear all materials and waves from the simulation">Clear Simulation</button>
+       <div class="control-group flex flex-col gap-y-1.5 pt-1 px-0.5">
+            <h3>Settings</h3>
+            <div class="label-value-pair text-xs"> <label for="resolutionSlider" class="font-medium text-neutral-300 mr-2">Cell Size:</label> <span id="resolutionValue" class="font-bold text-orange-400">5</span> px </div>
+            <input type="range" id="resolutionSlider" min="2" max="15" value="5" step="1" class="w-full h-1.5" title="Cell Size (Reset Required)">
+            <label for="visualizationModeSelect" class="text-xs mt-1">Visualization:</label>
+            <select id="visualizationModeSelect" title="Visualization Mode">
+                <option value="phase" selected>Phase Color</option>
+                <option value="bw">Black & White</option>
+                <option value="amplitude">Amplitude (Grayscale)</option> <!-- Added Amplitude -->
+                <option value="spectrum">Spectrum</option>
+                <option value="schlieren">Schlieren</option>
+                <!-- Removed Log Intensity -->
+            </select>
+            <button id="clear-all" class="action-btn w-full mt-1.5 focus:outline-none focus:ring-1 focus:ring-offset-1 focus:ring-offset-neutral-800" title="Clear Simulation">Clear Simulation</button>
        </div>
     </div>
 
@@ -121,15 +126,30 @@
 </div>
 
 <script>
+  /**
+   * Interactive Sound Playground
+   * Simulates and visualizes 2D wave propagation with audio output.
+   */
+
   // ==================================================================
   // --- Configuration ---
   // ==================================================================
   const config = {
+      // Simulation Grid & Physics
       defaultGridSize: 5, baseDamping: 0.99, absorberDamping: 0.92, edgeDampingWidth: 20, edgeDampingFactor: 0.05,
-      pulseStrength: 255, maxIntensityVisual: 200, pulseBaseRadius: 8, audioSampleGain: 1.0, audioGainSmoothing: 0.015,
-      audioStereoSeparation: 5, defaultPitch: 4.0, defaultBrushSize: 3, defaultVisMode: 'phase', defaultOscillatorType: 'sine',
-      baseAudioFrequency: 330, defaultVolume: 0.6, minZoom: 0.2, maxZoom: 8.0, zoomFactor: 1.1, gradientThreshold: 0.5,
-      logIntensityFloor: 1,
+      // Wave Generation
+      pulseStrength: 255, pulseBaseRadius: 8, defaultPitch: 4.0,
+      // Material Painting
+      defaultBrushSize: 3,
+      // Visualization
+      maxIntensityVisual: 200, defaultVisMode: 'phase',
+      schlierenScale: 8, // Adjusted scaling for Schlieren visibility
+      gradientThreshold: 0.2, // Adjusted threshold for Schlieren visibility
+      // Audio Output
+      audioSampleGain: 1.0, audioGainSmoothing: 0.015, audioStereoSeparation: 5,
+      defaultOscillatorType: 'sine', baseAudioFrequency: 330, defaultVolume: 0.6,
+      listenerGrabRadius: 1.5, defaultFilterType: 'lowpass', defaultFilterFreq: 5000, defaultFilterQ: 1,
+      minFilterLogFreq: 20, maxFilterLogFreq: 20000,
   };
 
   // ==================================================================
@@ -144,10 +164,13 @@
   // ==================================================================
   const pitchSlider = document.getElementById('pitchSlider'), pitchValueSpan = document.getElementById('pitchValue');
   const brushSizeSlider = document.getElementById('brushSizeSlider'), brushSizeValueSpan = document.getElementById('brushSizeValue');
-  const resetViewBtn = document.getElementById('reset-view');
   const toggleAudioBtn = document.getElementById('toggle-audio');
   const volumeSlider = document.getElementById('volumeSlider'), volumeValueSpan = document.getElementById('volumeValue');
+  const audioPresetSelect = document.getElementById('audioPresetSelect');
   const oscillatorTypeSelect = document.getElementById('oscillatorTypeSelect');
+  const filterTypeSelect = document.getElementById('filterTypeSelect');
+  const filterFreqSlider = document.getElementById('filterFreqSlider'), filterFreqValue = document.getElementById('filterFreqValue');
+  const filterQSlider = document.getElementById('filterQSlider'), filterQValue = document.getElementById('filterQValue');
   const resolutionSlider = document.getElementById('resolutionSlider'), resolutionValueSpan = document.getElementById('resolutionValue');
   const visualizationModeSelect = document.getElementById('visualizationModeSelect');
   const clearAllBtn = document.getElementById('clear-all');
@@ -171,215 +194,154 @@
   let currentPitch = config.defaultPitch;
   let currentBrushSize = config.defaultBrushSize;
   let currentVisMode = config.defaultVisMode;
-  let isDrawing = false, isPanning = false, isMovingListener = false;
+  let isDrawing = false;
+  let draggingListener = null; // 'L', 'R', or null
   let mousePos = { x: 0, y: 0 };
   let worldMousePos = { x: 0, y: 0 };
-  let panStart = { x: 0, y: 0 };
   let isMouseOverCanvas = false;
   let animationFrameId = null;
 
   // ==================================================================
-  // --- View State Variables (Zoom/Pan) ---
+  // --- View State Variables (Simplified - No Zoom/Pan) ---
   // ==================================================================
-  let viewScale = 1.0;
-  let viewOffset = { x: 0, y: 0 };
+  const viewScale = 1.0;
+  const viewOffset = { x: 0, y: 0 };
 
   // ==================================================================
   // --- Audio State Variables ---
   // ==================================================================
   let audioContext;
-  let masterGain, gainNodeL, gainNodeR, channelMerger, oscillator;
+  let masterGain, gainNodeL, gainNodeR, channelMerger, oscillator, filterNode;
   let isAudioEnabled = false;
-  let listenerCenterPos = { x: 0, y: 0 };
   let audioListenerPosL = { x: 0, y: 0 }, audioListenerPosR = { x: 0, y: 0 };
   let currentOscillatorType = config.defaultOscillatorType;
   let currentVolume = config.defaultVolume;
+  let currentFilterType = config.defaultFilterType;
+  let currentFilterFreq = config.defaultFilterFreq;
+  let currentFilterQ = config.defaultFilterQ;
+
+  // ==================================================================
+  // --- Audio Presets Definition ---
+  // ==================================================================
+  const audioPresets = [
+    { name: "Custom", osc: "sine", filterType: "allpass", freq: 10000, q: 1 },
+    { name: "Default (Sine)", osc: "sine", filterType: "allpass", freq: 10000, q: 1 },
+    { name: "Soft Wall Hit", osc: "sine", filterType: "lowpass", freq: 800, q: 0.7 },
+    { name: "Muffled", osc: "triangle", filterType: "lowpass", freq: 400, q: 1.5 },
+    { name: "Metal Plate", osc: "square", filterType: "peaking", freq: 2500, q: 6 },
+    { name: "Sharp Tap", osc: "square", filterType: "highpass", freq: 3000, q: 1 },
+    { name: "Rumble", osc: "sawtooth", filterType: "lowpass", freq: 150, q: 2 },
+    { name: "Chime", osc: "sine", filterType: "bandpass", freq: 3500, q: 15 },
+    { name: "Pluck", osc: "triangle", filterType: "lowpass", freq: 1500, q: 3 },
+    { name: "High Resonance", osc: "sawtooth", filterType: "bandpass", freq: 1200, q: 10 },
+    { name: "Vowel 'Ahh'", osc: "sawtooth", filterType: "bandpass", freq: 800, q: 5 },
+    { name: "Sci-Fi", osc: "square", filterType: "notch", freq: 1000, q: 8 },
+  ];
 
   // ==================================================================
   // --- Initialization and Grid Setup ---
   // ==================================================================
-  /**
-   * Sets up the simulation grid, allocates buffers, and updates UI elements.
-   * @param {boolean} [resetSimulation=true] - If true, fully resets wave/material state.
-   * @returns {boolean} - True if setup was successful, false otherwise.
-   */
-  function setupGrid(resetSimulation = true) {
-      console.log("setupGrid: Starting...");
-      canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-      console.log(`setupGrid: Canvas size ${canvas.width}x${canvas.height}`);
-      const tempCols = Math.max(2, Math.floor(canvas.width / currentGridSize));
-      const tempRows = Math.max(2, Math.floor(canvas.height / currentGridSize));
-      let needsRealloc = resetSimulation || tempCols !== cols || tempRows !== rows;
-      cols = tempCols; rows = tempRows;
-      console.log(`setupGrid: Calculated dimensions ${cols}x${rows}`);
-      if (needsRealloc) {
-          console.log("setupGrid: Resetting state / allocating buffers...");
-          if (resetSimulation) { listenerCenterPos = { x: Math.floor(cols / 2), y: Math.floor(rows / 2) }; }
-          updateListenerPositions();
-          try {
-              current = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0));
-              previous = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0));
-              materialMap = Array(rows).fill(null).map(() => new Uint8Array(cols).fill(MATERIALS.AIR));
-              gradientX = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0));
-              gradientY = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0));
-              console.log("setupGrid: Buffers allocated.");
-          } catch (e) { console.error("setupGrid: Failed buffer allocation:", e); alert("Error: Could not allocate memory."); current = previous = materialMap = gradientX = gradientY = null; return false; }
-      } else { console.log("setupGrid: Dimensions unchanged, no realloc needed."); }
-      try {
-          resolutionSlider.value = currentGridSize; resolutionValueSpan.textContent = currentGridSize;
-          pitchSlider.value = currentPitch; pitchValueSpan.textContent = currentPitch.toFixed(1);
-          brushSizeSlider.value = currentBrushSize; brushSizeValueSpan.textContent = currentBrushSize;
-          visualizationModeSelect.value = currentVisMode; oscillatorTypeSelect.value = currentOscillatorType;
-          volumeSlider.value = currentVolume; volumeValueSpan.textContent = currentVolume.toFixed(2);
-      } catch (uiError) { console.error("setupGrid: UI update error:", uiError); }
-      console.log(`setupGrid: Completed. Grid: ${cols}x${rows}`);
-      return true;
-  }
-
-  /** Calculates the L/R audio listener positions based on the listenerCenterPos. */
-  function updateListenerPositions() {
-      if (cols <= 0 || rows <= 0) return; const centerCol = listenerCenterPos.x; const centerRow = listenerCenterPos.y; const separation = config.audioStereoSeparation;
-      audioListenerPosL = { x: Math.max(0, Math.min(cols - 1, Math.round(centerCol - separation))), y: Math.max(0, Math.min(rows - 1, Math.round(centerRow))) };
-      audioListenerPosR = { x: Math.max(0, Math.min(cols - 1, Math.round(centerCol + separation))), y: Math.max(0, Math.min(rows - 1, Math.round(centerRow))) };
-  }
+  /** Sets up the simulation grid, allocates buffers, and updates UI elements. */
+  function setupGrid(resetSimulation = true) { /* ... same robust setupGrid ... */ console.log("setupGrid: Starting..."); canvas.width = window.innerWidth; canvas.height = window.innerHeight; console.log(`setupGrid: Canvas size ${canvas.width}x${canvas.height}`); const tempCols = Math.max(2, Math.floor(canvas.width / currentGridSize)); const tempRows = Math.max(2, Math.floor(canvas.height / currentGridSize)); let needsRealloc = resetSimulation || tempCols !== cols || tempRows !== rows; cols = tempCols; rows = tempRows; console.log(`setupGrid: Calculated dimensions ${cols}x${rows}`); if (needsRealloc) { console.log("setupGrid: Resetting state / allocating buffers..."); if (resetSimulation) { const centerCol = Math.floor(cols / 2); const centerRow = Math.floor(rows / 2); const separation = config.audioStereoSeparation; audioListenerPosL = { x: Math.max(0, Math.min(cols - 1, Math.round(centerCol - separation))), y: Math.max(0, Math.min(rows - 1, Math.round(centerRow))) }; audioListenerPosR = { x: Math.max(0, Math.min(cols - 1, Math.round(centerCol + separation))), y: Math.max(0, Math.min(rows - 1, Math.round(centerRow))) }; } try { current = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0)); previous = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0)); materialMap = Array(rows).fill(null).map(() => new Uint8Array(cols).fill(MATERIALS.AIR)); gradientX = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0)); gradientY = Array(rows).fill(null).map(() => new Float32Array(cols).fill(0)); console.log("setupGrid: Buffers allocated."); } catch (e) { console.error("setupGrid: Failed buffer allocation:", e); alert("Error: Could not allocate memory."); current = previous = materialMap = gradientX = gradientY = null; return false; } } else { console.log("setupGrid: Dimensions unchanged, no realloc needed."); } try { resolutionSlider.value = currentGridSize; resolutionValueSpan.textContent = currentGridSize; pitchSlider.value = currentPitch; pitchValueSpan.textContent = currentPitch.toFixed(1); brushSizeSlider.value = currentBrushSize; brushSizeValueSpan.textContent = currentBrushSize; visualizationModeSelect.value = currentVisMode; oscillatorTypeSelect.value = currentOscillatorType; volumeSlider.value = currentVolume; volumeValueSpan.textContent = currentVolume.toFixed(2); filterTypeSelect.value = currentFilterType; filterFreqSlider.value = freqToSliderLog(currentFilterFreq); filterFreqValue.textContent = Math.round(currentFilterFreq); filterQSlider.value = currentFilterQ; filterQValue.textContent = currentFilterQ.toFixed(1); } catch (uiError) { console.error("setupGrid: UI update error:", uiError); } console.log(`setupGrid: Completed. Grid: ${cols}x${rows}`); return true; }
 
   // ==================================================================
   // --- Web Audio API Management ---
   // ==================================================================
-  /** Initializes the Web Audio API context and nodes. */
-  function initAudio() {
-      if (audioContext || toggleAudioBtn.disabled) return !!audioContext; try { audioContext = new (window.AudioContext || window.webkitAudioContext)(); if (audioContext.state === 'suspended') { audioContext.resume().catch(err => console.warn("Audio initial resume failed:", err)); } masterGain = audioContext.createGain(); masterGain.gain.setValueAtTime(currentVolume, audioContext.currentTime); masterGain.connect(audioContext.destination); gainNodeL = audioContext.createGain(); gainNodeR = audioContext.createGain(); gainNodeL.gain.setValueAtTime(0, audioContext.currentTime); gainNodeR.gain.setValueAtTime(0, audioContext.currentTime); channelMerger = audioContext.createChannelMerger(2); oscillator = audioContext.createOscillator(); oscillator.type = currentOscillatorType; oscillator.frequency.setValueAtTime(config.baseAudioFrequency, audioContext.currentTime); oscillator.connect(gainNodeL); oscillator.connect(gainNodeR); gainNodeL.connect(channelMerger, 0, 0); gainNodeR.connect(channelMerger, 0, 1); channelMerger.connect(masterGain); oscillator.start(); console.log("AudioContext initialized."); return true; } catch (e) { console.error("Web Audio API setup failed:", e); alert("Web Audio API not supported/init failed."); toggleAudioBtn.disabled = true; toggleAudioBtn.textContent = "Audio N/A"; toggleAudioBtn.classList.add('opacity-50', 'cursor-not-allowed'); oscillatorTypeSelect.disabled = true; volumeSlider.disabled = true; return false; }
-   }
+  /** Initializes the Web Audio API context and nodes including the filter. */
+  function initAudio() { /* ... same robust initAudio with filter ... */ if (audioContext || toggleAudioBtn.disabled) return !!audioContext; try { audioContext = new (window.AudioContext || window.webkitAudioContext)(); if (audioContext.state === 'suspended') { audioContext.resume().catch(err => console.warn("Audio initial resume failed:", err)); } masterGain = audioContext.createGain(); masterGain.gain.setValueAtTime(currentVolume, audioContext.currentTime); gainNodeL = audioContext.createGain(); gainNodeR = audioContext.createGain(); gainNodeL.gain.setValueAtTime(0, audioContext.currentTime); gainNodeR.gain.setValueAtTime(0, audioContext.currentTime); channelMerger = audioContext.createChannelMerger(2); filterNode = audioContext.createBiquadFilter(); filterNode.type = currentFilterType; filterNode.frequency.setValueAtTime(currentFilterFreq, audioContext.currentTime); filterNode.Q.setValueAtTime(currentFilterQ, audioContext.currentTime); oscillator = audioContext.createOscillator(); oscillator.type = currentOscillatorType; oscillator.frequency.setValueAtTime(config.baseAudioFrequency, audioContext.currentTime); oscillator.connect(gainNodeL); oscillator.connect(gainNodeR); gainNodeL.connect(channelMerger, 0, 0); gainNodeR.connect(channelMerger, 0, 1); channelMerger.connect(filterNode); filterNode.connect(masterGain); masterGain.connect(audioContext.destination); oscillator.start(); console.log("AudioContext initialized with filter."); return true; } catch (e) { console.error("Web Audio API setup failed:", e); alert("Web Audio API not supported/init failed."); toggleAudioBtn.disabled = true; toggleAudioBtn.textContent = "Audio N/A"; toggleAudioBtn.classList.add('opacity-50', 'cursor-not-allowed'); oscillatorTypeSelect.disabled = true; volumeSlider.disabled = true; filterTypeSelect.disabled = true; filterFreqSlider.disabled = true; filterQSlider.disabled = true; return false; } }
   /** Updates the master volume. */
-  function updateVolume() { currentVolume = parseFloat(volumeSlider.value); volumeValueSpan.textContent = currentVolume.toFixed(2); if (masterGain && audioContext && audioContext.state === 'running') { masterGain.gain.setTargetAtTime(currentVolume, audioContext.currentTime, 0.02); } }
+  function updateVolume() { /* ... same ... */ currentVolume = parseFloat(volumeSlider.value); volumeValueSpan.textContent = currentVolume.toFixed(2); if (masterGain && audioContext && audioContext.state === 'running') { masterGain.gain.setTargetAtTime(currentVolume, audioContext.currentTime, 0.02); } }
   /** Toggles the audio enabled state. */
-  function toggleAudio() { if (!audioContext) { if (!initAudio()) return; } if (audioContext.state === 'suspended') { audioContext.resume().then(performToggleAudioAction).catch(err => { console.error("Resume fail:", err); performToggleAudioAction(); }); } else if (audioContext.state === 'running') { performToggleAudioAction(); } else { console.warn(`Ctx state: ${audioContext.state}.`); isAudioEnabled = !isAudioEnabled; updateAudioButtonState(); } }
+  function toggleAudio() { /* ... same ... */ if (!audioContext) { if (!initAudio()) return; } if (audioContext.state === 'suspended') { audioContext.resume().then(performToggleAudioAction).catch(err => { console.error("Resume fail:", err); performToggleAudioAction(); }); } else if (audioContext.state === 'running') { performToggleAudioAction(); } else { console.warn(`Ctx state: ${audioContext.state}.`); isAudioEnabled = !isAudioEnabled; updateAudioButtonState(); } }
   /** Updates the audio toggle button appearance. */
-  function updateAudioButtonState() { if (isAudioEnabled) { toggleAudioBtn.textContent = "Disable Audio"; toggleAudioBtn.classList.replace('bg-green-600', 'bg-yellow-600'); toggleAudioBtn.classList.replace('hover:bg-green-500', 'hover:bg-yellow-500'); } else { toggleAudioBtn.textContent = "Enable Audio"; toggleAudioBtn.classList.replace('bg-yellow-600', 'bg-green-600'); toggleAudioBtn.classList.replace('hover:bg-yellow-500', 'hover:bg-green-500'); } }
+  function updateAudioButtonState() { /* ... same ... */ if (isAudioEnabled) { toggleAudioBtn.textContent = "Disable Audio"; toggleAudioBtn.classList.replace('bg-green-600', 'bg-yellow-600'); toggleAudioBtn.classList.replace('hover:bg-green-500', 'hover:bg-yellow-500'); } else { toggleAudioBtn.textContent = "Enable Audio"; toggleAudioBtn.classList.replace('bg-yellow-600', 'bg-green-600'); toggleAudioBtn.classList.replace('hover:bg-yellow-500', 'hover:bg-green-500'); } }
   /** Performs the core audio enable/disable logic. */
-  function performToggleAudioAction() { if (!audioContext || !gainNodeL || !gainNodeR) return; isAudioEnabled = !isAudioEnabled; updateAudioButtonState(); if (isAudioEnabled) { console.log("Audio Enabled"); } else { console.log("Audio Disabled"); const now = audioContext.currentTime; gainNodeL.gain.cancelScheduledValues(now); gainNodeR.gain.cancelScheduledValues(now); gainNodeL.gain.setTargetAtTime(0, now, config.audioGainSmoothing * 2); gainNodeR.gain.setTargetAtTime(0, now, config.audioGainSmoothing * 2); } }
+  function performToggleAudioAction() { /* ... same ... */ if (!audioContext || !gainNodeL || !gainNodeR) return; isAudioEnabled = !isAudioEnabled; updateAudioButtonState(); if (isAudioEnabled) { console.log("Audio Enabled"); } else { console.log("Audio Disabled"); const now = audioContext.currentTime; gainNodeL.gain.cancelScheduledValues(now); gainNodeR.gain.cancelScheduledValues(now); gainNodeL.gain.setTargetAtTime(0, now, config.audioGainSmoothing * 2); gainNodeR.gain.setTargetAtTime(0, now, config.audioGainSmoothing * 2); } }
   /** Updates the oscillator waveform type. */
-  function updateOscillatorType() { currentOscillatorType = oscillatorTypeSelect.value; if (oscillator && audioContext && audioContext.state !== 'closed') { try { oscillator.type = currentOscillatorType; console.log(`Osc type: ${currentOscillatorType}`); } catch (e) { console.error("Err osc type:", e); } } }
+  function updateOscillatorType() { /* ... same + preset reset ... */ currentOscillatorType = oscillatorTypeSelect.value; if (oscillator && audioContext && audioContext.state !== 'closed') { try { oscillator.type = currentOscillatorType; console.log(`Osc type: ${currentOscillatorType}`); } catch (e) { console.error("Err osc type:", e); } } audioPresetSelect.value = "custom"; }
+  /** Updates the filter type. */
+   function updateFilterType() { /* ... same + preset reset ... */ currentFilterType = filterTypeSelect.value; if (filterNode && audioContext && audioContext.state !== 'closed') { try { filterNode.type = currentFilterType; console.log(`Filter type set to: ${currentFilterType}`); } catch (e) { console.error("Error setting filter type:", e); } } audioPresetSelect.value = "custom"; }
+    /** Converts slider value (linear 0-1) to logarithmic frequency. */
+    function sliderToFreqLog(sliderValue) { const minLog = Math.log10(config.minFilterLogFreq); const maxLog = Math.log10(config.maxFilterLogFreq); const normalizedSlider = parseFloat(sliderValue); const logFreq = minLog + (maxLog - minLog) * normalizedSlider; return Math.pow(10, logFreq); }
+    /** Converts frequency value to logarithmic slider position (0-1). */
+    function freqToSliderLog(freqValue) { const minLog = Math.log10(config.minFilterLogFreq); const maxLog = Math.log10(config.maxFilterLogFreq); const clampedFreq = Math.max(config.minFilterLogFreq, Math.min(config.maxFilterLogFreq, freqValue)); const logFreq = Math.log10(clampedFreq); const normalizedLog = (logFreq - minLog) / (maxLog - minLog); return normalizedLog; }
+   /** Updates the filter frequency using a logarithmic scale. */
+   function updateFilterFrequency() { /* ... same + preset reset ... */ const sliderValue = parseFloat(filterFreqSlider.value); currentFilterFreq = sliderToFreqLog(sliderValue); filterFreqValue.textContent = Math.round(currentFilterFreq); if (filterNode && audioContext && audioContext.state === 'running') { filterNode.frequency.setTargetAtTime(currentFilterFreq, audioContext.currentTime, 0.01); } audioPresetSelect.value = "custom"; }
+   /** Updates the filter Q value. */
+   function updateFilterQ() { /* ... same + preset reset ... */ currentFilterQ = parseFloat(filterQSlider.value); filterQValue.textContent = currentFilterQ.toFixed(1); if (filterNode && audioContext && audioContext.state === 'running') { filterNode.Q.setTargetAtTime(currentFilterQ, audioContext.currentTime, 0.02); } audioPresetSelect.value = "custom"; }
+    /** Applies the selected audio preset. */
+    function applyAudioPreset() { /* ... same ... */ const selectedPresetName = audioPresetSelect.value; if (selectedPresetName === "custom") return; const preset = audioPresets.find(p => p.name === selectedPresetName); if (preset) { console.log(`Applying preset: ${preset.name}`); oscillatorTypeSelect.value = preset.osc; updateOscillatorType(); filterTypeSelect.value = preset.filterType; updateFilterType(); currentFilterFreq = preset.freq; filterFreqSlider.value = freqToSliderLog(currentFilterFreq); filterFreqValue.textContent = Math.round(currentFilterFreq); if (filterNode && audioContext && audioContext.state === 'running') { filterNode.frequency.setTargetAtTime(currentFilterFreq, audioContext.currentTime, 0.01); } currentFilterQ = preset.q; filterQSlider.value = currentFilterQ; filterQValue.textContent = currentFilterQ.toFixed(1); if (filterNode && audioContext && audioContext.state === 'running') { filterNode.Q.setTargetAtTime(currentFilterQ, audioContext.currentTime, 0.02); } } else { console.warn(`Preset "${selectedPresetName}" not found.`); } }
+    /** Populates the preset dropdown menu. */
+    function populatePresetDropdown() { /* ... same ... */ audioPresetSelect.innerHTML = '<option value="custom">Custom</option>'; audioPresets.forEach(preset => { if (preset.name === "Custom") return; const option = document.createElement('option'); option.value = preset.name; option.textContent = preset.name; audioPresetSelect.appendChild(option); }); }
 
   // ==================================================================
   // --- Simulation Update Step ---
   // ==================================================================
-   /** Calculates the next state of the wave simulation using FDTD. */
-   function updateWave() {
-       if (!current || !previous || !materialMap || rows <= 1 || cols <= 1) return;
-       if (currentVisMode === 'schlieren') { calculateGradients(); }
-       let temp = previous; previous = current; current = temp; // Swap buffers
-       try {
-           for (let y = 1; y < rows - 1; y++) { for (let x = 1; x < cols - 1; x++) {
-               const mat = materialMap[y][x]; if (mat === MATERIALS.WALL) { current[y][x] = 0; continue; }
-               const pN = materialMap[y - 1][x] === MATERIALS.WALL ? -previous[y][x] : previous[y - 1][x]; const pS = materialMap[y + 1][x] === MATERIALS.WALL ? -previous[y][x] : previous[y + 1][x]; const pW = materialMap[y][x - 1] === MATERIALS.WALL ? -previous[y][x] : previous[y][x - 1]; const pE = materialMap[y][x + 1] === MATERIALS.WALL ? -previous[y][x] : previous[y][x + 1];
-               // Simple FDTD update
-               let value = (pN + pS + pW + pE) * 0.5 - current[y][x];
-               // Damping
-               let damping = config.baseDamping; if (mat === MATERIALS.ABSORBER) damping = config.absorberDamping; const edgeDist = Math.min(x, y, cols - 1 - x, rows - 1 - y); if (edgeDist < config.edgeDampingWidth) { damping *= (1.0 - ((config.edgeDampingWidth - edgeDist) / config.edgeDampingWidth) * config.edgeDampingFactor); } value *= damping;
-               // Store result, clamp, check NaN
-               const clampedValue = Math.max(-config.pulseStrength * 3, Math.min(config.pulseStrength * 3, value));
-               if (isNaN(clampedValue)) { console.error(`NaN @ [${y},${x}]!`); current[y][x] = 0; previous[y][x] = 0; } else { current[y][x] = clampedValue; } } }
-       } catch (loopError) { console.error("FDTD loop error:", loopError); stopAnimation(); return; }
-       updateAudio();
-   }
-   /** Calculates the spatial gradient for Schlieren visualization. */
-   function calculateGradients() { if (!current || !gradientX || !gradientY || rows <= 1 || cols <= 1) return; for (let y = 1; y < rows - 1; y++) { for (let x = 1; x < cols - 1; x++) { gradientX[y][x] = (current[y][x + 1] - current[y][x - 1]) * 0.5; gradientY[y][x] = (current[y + 1][x] - current[y - 1][x]) * 0.5; } gradientX[y][0]=0; gradientX[y][cols-1]=0; gradientY[y][0]=0; gradientY[y][cols-1]=0;} for(let x=0; x<cols; x++) {gradientX[0][x]=0; gradientX[rows-1][x]=0; gradientY[0][x]=0; gradientY[rows-1][x]=0;} }
-   /** Updates the gain of the L/R audio channels. */
-   function updateAudio() { if (isAudioEnabled && audioContext && audioContext.state === 'running' && gainNodeL && gainNodeR && current?.length > 0) { const now = audioContext.currentTime; let sampleL = 0, sampleR = 0; const ly = audioListenerPosL.y, lx = audioListenerPosL.x; const ry = audioListenerPosR.y, rx = audioListenerPosR.x; if (ly >= 0 && ly < rows && lx >= 0 && lx < cols) sampleL = current[ly][lx]; if (ry >= 0 && ry < rows && rx >= 0 && rx < cols) sampleR = current[ry][rx]; const targetGainL = Math.tanh(Math.abs(sampleL) / config.maxIntensityVisual) * config.audioSampleGain; const targetGainR = Math.tanh(Math.abs(sampleR) / config.maxIntensityVisual) * config.audioSampleGain; gainNodeL.gain.setTargetAtTime(targetGainL, now, config.audioGainSmoothing); gainNodeR.gain.setTargetAtTime(targetGainR, now, config.audioGainSmoothing); } else if (!isAudioEnabled && gainNodeL?.gain && gainNodeR?.gain && audioContext?.state === 'running') { const now = audioContext.currentTime; if (gainNodeL.gain.value > 1e-4) gainNodeL.gain.setTargetAtTime(0, now, config.audioGainSmoothing); if (gainNodeR.gain.value > 1e-4) gainNodeR.gain.setTargetAtTime(0, now, config.audioGainSmoothing); } }
+   function updateWave() { /* ... same stable FDTD logic ... */ if (!current || !previous || !materialMap || rows <= 1 || cols <= 1) return; if (currentVisMode === 'schlieren') { calculateGradients(); } let temp = previous; previous = current; current = temp; try { for (let y = 1; y < rows - 1; y++) { for (let x = 1; x < cols - 1; x++) { const mat = materialMap[y][x]; if (mat === MATERIALS.WALL) { current[y][x] = 0; continue; } const pN = materialMap[y - 1][x] === MATERIALS.WALL ? -previous[y][x] : previous[y - 1][x]; const pS = materialMap[y + 1][x] === MATERIALS.WALL ? -previous[y][x] : previous[y + 1][x]; const pW = materialMap[y][x - 1] === MATERIALS.WALL ? -previous[y][x] : previous[y][x - 1]; const pE = materialMap[y][x + 1] === MATERIALS.WALL ? -previous[y][x] : previous[y][x + 1]; let value = (pN + pS + pW + pE) * 0.5 - current[y][x]; let damping = config.baseDamping; if (mat === MATERIALS.ABSORBER) damping = config.absorberDamping; const edgeDist = Math.min(x, y, cols - 1 - x, rows - 1 - y); if (edgeDist < config.edgeDampingWidth) { damping *= (1.0 - ((config.edgeDampingWidth - edgeDist) / config.edgeDampingWidth) * config.edgeDampingFactor); } value *= damping; const clampedValue = Math.max(-config.pulseStrength * 3, Math.min(config.pulseStrength * 3, value)); if (isNaN(clampedValue)) { console.error(`NaN @ [${y},${x}]!`); current[y][x] = 0; previous[y][x] = 0; } else { current[y][x] = clampedValue; } } } } catch (loopError) { console.error("FDTD loop error:", loopError); stopAnimation(); return; } updateAudio(); }
+   /** Calculates gradients using the 'previous' buffer (state at time t). */
+   function calculateGradients() { /* ... uses previous buffer ... */ if (!previous || !gradientX || !gradientY || rows <= 1 || cols <= 1) return; for (let y = 1; y < rows - 1; y++) { if (!previous[y] || !previous[y+1] || !gradientX[y] || !gradientY[y]) continue; for (let x = 1; x < cols - 1; x++) { gradientX[y][x] = (previous[y][x + 1] - previous[y][x - 1]) * 0.5; gradientY[y][x] = (previous[y + 1][x] - previous[y - 1][x]) * 0.5; } gradientX[y][0]=0; gradientX[y][cols-1]=0; gradientY[y][0]=0; gradientY[y][cols-1]=0;} for(let x=0; x<cols; x++) {gradientX[0][x]=0; gradientX[rows-1][x]=0; gradientY[0][x]=0; gradientY[rows-1][x]=0;} }
+   function updateAudio() { /* ... same robust audio update ... */ if (isAudioEnabled && audioContext && audioContext.state === 'running' && gainNodeL && gainNodeR && current?.length > 0) { const now = audioContext.currentTime; let sampleL = 0, sampleR = 0; const ly = audioListenerPosL.y, lx = audioListenerPosL.x; const ry = audioListenerPosR.y, rx = audioListenerPosR.x; if (ly >= 0 && ly < rows && lx >= 0 && lx < cols) sampleL = current[ly][lx]; if (ry >= 0 && ry < rows && rx >= 0 && rx < cols) sampleR = current[ry][rx]; const targetGainL = Math.tanh(Math.abs(sampleL) / config.maxIntensityVisual) * config.audioSampleGain; const targetGainR = Math.tanh(Math.abs(sampleR) / config.maxIntensityVisual) * config.audioSampleGain; gainNodeL.gain.setTargetAtTime(targetGainL, now, config.audioGainSmoothing); gainNodeR.gain.setTargetAtTime(targetGainR, now, config.audioGainSmoothing); } else if (!isAudioEnabled && gainNodeL?.gain && gainNodeR?.gain && audioContext?.state === 'running') { const now = audioContext.currentTime; if (gainNodeL.gain.value > 1e-4) gainNodeL.gain.setTargetAtTime(0, now, config.audioGainSmoothing); if (gainNodeR.gain.value > 1e-4) gainNodeR.gain.setTargetAtTime(0, now, config.audioGainSmoothing); } }
 
   // ==================================================================
   // --- Drawing and Rendering (Simplified: No Zoom/Pan) ---
   // ==================================================================
-  /** Main drawing function, renders the simulation state to the canvas. */
-  function draw() {
-      if (!ctx || !current || !materialMap || rows <= 0 || cols <= 0) return;
-      try {
-            // 1. Clear canvas
-            ctx.fillStyle = '#111827'; ctx.fillRect(0, 0, canvas.width, canvas.height);
-            // 2. Define drawing range (full grid for now)
-            const startCol = 0; const endCol = cols; const startRow = 0; const endRow = rows;
-            // 3. Draw Materials
-            if (materialMap?.length === rows && materialMap[0]?.length === cols) { for (let y = startRow; y < endRow; y++) { for (let x = startCol; x < endCol; x++) { const mat = materialMap[y][x]; if (mat !== MATERIALS.AIR) { ctx.fillStyle = materialColors[mat]; ctx.fillRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize); } } } }
-            // 4. Draw Waves
-             if (current?.length === rows && current[0]?.length === cols) { switch (currentVisMode) { case 'phase': drawWavesPhaseColor(startRow, endRow, startCol, endCol); break; case 'bw': drawWavesBW(startRow, endRow, startCol, endCol); break; case 'spectrum': drawWavesSpectrum(startRow, endRow, startCol, endCol); break; case 'schlieren': drawWavesSchlieren(startRow, endRow, startCol, endCol); break; case 'log_intensity': drawWavesLogIntensity(startRow, endRow, startCol, endCol); break; default: drawWavesPhaseColor(startRow, endRow, startCol, endCol); } }
-            // 5. Draw Overlays
-            drawUIOverlays();
-            // 6. Draw Tooltip
-            updateTooltip();
-      } catch(drawError) { console.error("Draw error:", drawError); stopAnimation(); }
-  }
-  // --- Visualization Subroutines ---
-  function drawWavesPhaseColor(sr, er, sc, ec) { const maxI=config.maxIntensityVisual; for (let y=sr; y<er; y++){for(let x=sc; x<ec; x++){const i=current[y][x]; const absI=Math.abs(i); if(absI>0.1){const nI=Math.min(1,absI/maxI); let r=0,g=0,b=0; const bF=Math.min(1,0.1+nI*1.2); if(i>0){r=255; g=Math.floor(255*(1-nI*0.6));}else{b=255; g=Math.floor(255*(1-nI*0.6));} ctx.fillStyle=`rgb(${Math.floor(r*bF)}, ${Math.floor(g*bF)}, ${Math.floor(b*bF)})`; ctx.fillRect(x*currentGridSize, y*currentGridSize, currentGridSize, currentGridSize);}}} }
-  function drawWavesBW(sr, er, sc, ec) { const maxI=config.maxIntensityVisual*1.2; for (let y=sr; y<er; y++){for(let x=sc; x<ec; x++){const absI=Math.abs(current[y][x]); if(absI>0.1){const gray=Math.min(255,Math.floor(absI/maxI*255)); ctx.fillStyle=`rgb(${gray},${gray},${gray})`; ctx.fillRect(x*currentGridSize, y*currentGridSize, currentGridSize, currentGridSize);}}} }
-  function drawWavesSpectrum(sr, er, sc, ec) { const maxI=config.maxIntensityVisual; for (let y=sr; y<er; y++){for(let x=sc; x<ec; x++){const absI=Math.abs(current[y][x]); if(absI>0.1){const nI=Math.min(1,absI/maxI); const hue=240-(nI*240); const light=Math.min(75,25+nI*65); const sat=90+nI*10; ctx.fillStyle=`hsl(${hue.toFixed(0)},${sat.toFixed(0)}%,${light.toFixed(0)}%)`; ctx.fillRect(x*currentGridSize, y*currentGridSize, currentGridSize, currentGridSize);}}} }
-  function drawWavesSchlieren(sr, er, sc, ec) { if (!gradientX || !gradientY || gradientX.length !== rows || gradientX[0].length !== cols) return; const maxGsq=50*50; for (let y=sr; y<er; y++){for(let x=sc; x<ec; x++){const gx=gradientX[y][x]; const gy=gradientY[y][x]; const gSq=gx*gx+gy*gy; if(gSq>config.gradientThreshold*config.gradientThreshold){const bright=Math.min(255,Math.floor(Math.sqrt(gSq/maxGsq)*255)); ctx.fillStyle=`rgb(${bright},${bright},${bright})`; ctx.fillRect(x*currentGridSize, y*currentGridSize, currentGridSize, currentGridSize);}}} }
-  function drawWavesLogIntensity(sr, er, sc, ec) { const floor=config.logIntensityFloor; const maxL=Math.log10(config.maxIntensityVisual+floor); for (let y=sr; y<er; y++){for(let x=sc; x<ec; x++){const absI=Math.abs(current[y][x]); if(absI>0.1){const logI=Math.log10(absI+floor); const nLog=Math.max(0,Math.min(1,(logI-Math.log10(floor))/(maxL-Math.log10(floor)))); const gray=Math.floor(nLog*255); ctx.fillStyle=`rgb(${gray},${gray},${gray})`; ctx.fillRect(x*currentGridSize, y*currentGridSize, currentGridSize, currentGridSize);}}} }
-
-  /** Draws UI elements like listener markers and brush preview onto the canvas. */
-  function drawUIOverlays() {
-        const gSize=currentGridSize; ctx.textAlign="center"; ctx.textBaseline="middle";
-        if (isAudioEnabled || currentTool === 'listener') {
-             const radius=Math.max(2,gSize*0.8); const lw=1; ctx.lineWidth=lw;
-             const sxL=(audioListenerPosL.x+0.5)*gSize; const syL=(audioListenerPosL.y+0.5)*gSize; const sxR=(audioListenerPosR.x+0.5)*gSize; const syR=(audioListenerPosR.y+0.5)*gSize;
-             ctx.strokeStyle='rgba(255,255,255,0.3)'; ctx.beginPath(); ctx.moveTo(sxL,syL); ctx.lineTo(sxR,syR); ctx.stroke();
-             ctx.fillStyle=isAudioEnabled?'rgba(0,255,0,0.5)':'rgba(150,150,150,0.5)'; ctx.strokeStyle='rgba(255,255,255,0.6)';
-             ctx.beginPath(); ctx.arc(sxL,syL,radius,0,Math.PI*2); ctx.fill(); ctx.stroke();
-             const fSize=10; ctx.font=`${fSize}px sans-serif`; ctx.fillStyle='white'; ctx.fillText("L",sxL,syL);
-             ctx.fillStyle=isAudioEnabled?'rgba(0,255,0,0.5)':'rgba(150,150,150,0.5)';
-             ctx.beginPath(); ctx.arc(sxR,syR,radius,0,Math.PI*2); ctx.fill(); ctx.stroke(); ctx.fillStyle='white'; ctx.fillText("R",sxR,syR);
-             if (isMovingListener) { ctx.strokeStyle='rgba(255,255,0,0.8)'; ctx.lineWidth=lw*2; const csx=(listenerCenterPos.x+0.5)*gSize; const csy=(listenerCenterPos.y+0.5)*gSize; ctx.beginPath(); ctx.arc(csx,csy,radius*1.5,0,Math.PI*2); ctx.stroke(); }
+  /** Main drawing function. */
+  function draw() { if (!ctx || !current || !materialMap || rows <= 0 || cols <= 0) return; try { ctx.fillStyle = '#111827'; ctx.fillRect(0, 0, canvas.width, canvas.height); const startCol = 0; const endCol = cols; const startRow = 0; const endRow = rows; if (materialMap?.length === rows && materialMap[0]?.length === cols) { for (let y = startRow; y < endRow; y++) { for (let x = startCol; x < endCol; x++) { const mat = materialMap[y][x]; if (mat !== MATERIALS.AIR) { ctx.fillStyle = materialColors[mat]; ctx.fillRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize); } } } } if (current?.length === rows && current[0]?.length === cols) { switch (currentVisMode) { case 'phase': drawWavesPhaseColor(startRow, endRow, startCol, endCol); break; case 'bw': drawWavesBW(startRow, endRow, startCol, endCol); break; case 'amplitude': drawWavesAmplitude(startRow, endRow, startCol, endCol); break; /* Added amplitude case */ case 'spectrum': drawWavesSpectrum(startRow, endRow, startCol, endCol); break; case 'schlieren': drawWavesSchlieren(startRow, endRow, startCol, endCol); break; default: drawWavesPhaseColor(startRow, endRow, startCol, endCol); } } drawUIOverlays(); updateTooltip(); } catch(drawError) { console.error("Draw error:", drawError); stopAnimation(); } }
+  // --- Visualization Subroutines (Checked & Clamped) ---
+  function drawWavesPhaseColor(sr, er, sc, ec) { const maxI=config.maxIntensityVisual; for(let y=sr; y<er; y++){if (!current[y]) continue; for(let x=sc; x<ec; x++){const i=current[y][x]; const absI=Math.abs(i); if(absI>0.1){const nI=Math.min(1,absI/maxI); let r=0,g=0,b=0; const bF=Math.min(1,0.1+nI*1.2); if(i>0){r=255;g=Math.floor(255*(1-nI*0.6));}else{b=255;g=Math.floor(255*(1-nI*0.6));} ctx.fillStyle=`rgb(${Math.max(0,Math.min(255,Math.floor(r*bF)))}, ${Math.max(0,Math.min(255,Math.floor(g*bF)))}, ${Math.max(0,Math.min(255,Math.floor(b*bF)))})`; ctx.fillRect(x*currentGridSize,y*currentGridSize,currentGridSize,currentGridSize);}}} }
+  function drawWavesBW(sr, er, sc, ec) { const maxI=config.maxIntensityVisual*1.2; for(let y=sr; y<er; y++){if (!current[y]) continue; for(let x=sc; x<ec; x++){const absI=Math.abs(current[y][x]); if(absI>0.1){const gray=Math.max(0, Math.min(255,Math.floor(absI/maxI*255))); ctx.fillStyle=`rgb(${gray},${gray},${gray})`; ctx.fillRect(x*currentGridSize,y*currentGridSize,currentGridSize,currentGridSize);}}} }
+  /** Draws waves based on absolute amplitude mapped to grayscale. */
+  function drawWavesAmplitude(sr, er, sc, ec) {
+        const maxIntensity = config.maxIntensityVisual; // Use standard max intensity
+        for (let y = sr; y < er; y++) {
+            if (!current[y]) continue;
+            for (let x = sc; x < ec; x++) {
+                const absIntensity = Math.abs(current[y][x]);
+                if (absIntensity > 0.1) {
+                    const normalized = Math.min(1.0, absIntensity / maxIntensity);
+                    const gray = Math.max(0, Math.min(255, Math.floor(normalized * 255)));
+                    ctx.fillStyle = `rgb(${gray}, ${gray}, ${gray})`;
+                    ctx.fillRect(x * currentGridSize, y * currentGridSize, currentGridSize, currentGridSize);
+                }
+            }
         }
-        if (isMouseOverCanvas && !isDrawing && !isPanning && !isMovingListener && (currentTool==='wall'||currentTool==='absorber'||currentTool==='erase')) {
-            ctx.strokeStyle='rgba(255,255,255,0.5)'; ctx.lineWidth=1; const radiusPx=currentBrushSize*gSize; const gridX=Math.floor(mousePos.x/gSize); const gridY=Math.floor(mousePos.y/gSize); const cxScreen=gridX*gSize+gSize/2; const cyScreen=gridY*gSize+gSize/2; ctx.beginPath(); ctx.arc(cxScreen,cyScreen,Math.max(1,radiusPx),0,Math.PI*2); ctx.stroke();
-        }
-  }
-  /** Updates and positions the tooltip. */
-   function updateTooltip() {
-       if (!isMouseOverCanvas || isDrawing || isPanning || isMovingListener || !current || !materialMap || cols <= 0 || rows <= 0) { tooltip.style.display = 'none'; return; } let text = ''; const gridX = Math.floor(mousePos.x / currentGridSize); const gridY = Math.floor(mousePos.y / currentGridSize); if (gridX >= 0 && gridX < cols && gridY >= 0 && gridY < rows && current[gridY] && materialMap[gridY]) { const intensity = current[gridY][gridX]; text = `Grid: (${gridX}, ${gridY}) Val: ${intensity?.toFixed(2) ?? 'N/A'}`; const material = materialMap[gridY][gridX]; if(material === MATERIALS.WALL) text += " (Wall)"; else if (material === MATERIALS.ABSORBER) text += " (Absorb)"; } if (text) { tooltip.textContent = text; tooltip.style.left = `${mousePos.x + 15}px`; tooltip.style.top = `${mousePos.y + 10}px`; tooltip.style.display = 'block'; } else { tooltip.style.display = 'none'; }
     }
+  function drawWavesSpectrum(sr, er, sc, ec) { const maxI=config.maxIntensityVisual; for(let y=sr; y<er; y++){if (!current[y]) continue; for(let x=sc; x<ec; x++){const absI=Math.abs(current[y][x]); if(absI>0.1){const nI=Math.min(1,absI/maxI); const hue=Math.max(0,Math.min(360, 240-(nI*240))); const light=Math.max(0,Math.min(100, 25+nI*65)); const sat=Math.max(0,Math.min(100, 90+nI*10)); ctx.fillStyle=`hsl(${hue.toFixed(0)},${sat.toFixed(0)}%,${light.toFixed(0)}%)`; ctx.fillRect(x*currentGridSize,y*currentGridSize,currentGridSize,currentGridSize);}}} }
+  /** Draws Schlieren visualization based on wave gradient magnitude. */
+  function drawWavesSchlieren(sr, er, sc, ec) { if (!gradientX || !gradientY || gradientX.length !== rows || gradientX[0]?.length !== cols) return; const scale=config.schlierenScale; const thresholdSq = config.gradientThreshold*config.gradientThreshold; for(let y=sr; y<er; y++){if (!gradientX[y] || !gradientY[y]) continue; for(let x=sc; x<ec; x++){const gx=gradientX[y][x]; const gy=gradientY[y][x]; const gSq=gx*gx+gy*gy; if(gSq>thresholdSq){const bright=Math.max(0,Math.min(255,Math.floor(Math.sqrt(gSq)*scale))); ctx.fillStyle=`rgb(${bright},${bright},${bright})`; ctx.fillRect(x*currentGridSize,y*currentGridSize,currentGridSize,currentGridSize);}}} }
+  // Removed drawWavesLogIntensity function
+  /** Draws UI overlays like listener markers and brush preview. */
+  function drawUIOverlays() { /* ... same draggable listener logic ... */ const gSize = currentGridSize; ctx.textAlign = "center"; ctx.textBaseline = "middle"; const markerRadius = Math.max(3, gSize * 0.8); const lineWidth = 1; ctx.lineWidth = lineWidth; const screenLX = (audioListenerPosL.x + 0.5) * gSize; const screenLY = (audioListenerPosL.y + 0.5) * gSize; const screenRX = (audioListenerPosR.x + 0.5) * gSize; const screenRY = (audioListenerPosR.y + 0.5) * gSize; ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)'; ctx.fillStyle = draggingListener === 'L' ? 'rgba(255, 255, 0, 0.7)' : (isAudioEnabled ? 'rgba(0, 255, 0, 0.6)' : 'rgba(150, 150, 150, 0.6)'); ctx.beginPath(); ctx.arc(screenLX, screenLY, markerRadius, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); const fontSize = Math.max(7, 10); ctx.font = `bold ${fontSize}px sans-serif`; ctx.fillStyle = 'white'; ctx.fillText("L", screenLX, screenLY); ctx.fillStyle = draggingListener === 'R' ? 'rgba(255, 255, 0, 0.7)' : (isAudioEnabled ? 'rgba(0, 255, 0, 0.6)' : 'rgba(150, 150, 150, 0.6)'); ctx.beginPath(); ctx.arc(screenRX, screenRY, markerRadius, 0, Math.PI * 2); ctx.fill(); ctx.stroke(); ctx.fillText("R", screenRX, screenRY); if (isMouseOverCanvas && !isDrawing && draggingListener === null && (currentTool==='wall'||currentTool==='absorber'||currentTool==='erase')) { ctx.strokeStyle='rgba(255, 255, 255, 0.5)'; ctx.lineWidth=1; const radiusPx=currentBrushSize*gSize; const gridX=Math.floor(mousePos.x/gSize); const gridY=Math.floor(mousePos.y/gSize); const cxScreen=gridX*gSize+gSize/2; const cyScreen=gridY*gSize+gSize/2; ctx.beginPath(); ctx.arc(cxScreen, cyScreen, Math.max(1, radiusPx), 0, Math.PI*2); ctx.stroke(); } }
+  /** Updates and positions the tooltip. */
+   function updateTooltip() { /* ... same ... */ if (!isMouseOverCanvas || isDrawing || draggingListener !== null || !current || !materialMap || cols <= 0 || rows <= 0) { tooltip.style.display = 'none'; return; } let text = ''; const gridX = Math.floor(mousePos.x / currentGridSize); const gridY = Math.floor(mousePos.y / currentGridSize); if (gridX >= 0 && gridX < cols && gridY >= 0 && gridY < rows && current[gridY] && materialMap[gridY]) { const intensity = current[gridY][gridX]; text = `Grid: (${gridX}, ${gridY}) Val: ${intensity?.toFixed(2) ?? 'N/A'}`; const material = materialMap[gridY][gridX]; if(material === MATERIALS.WALL) text += " (Wall)"; else if (material === MATERIALS.ABSORBER) text += " (Absorb)"; } if (text) { tooltip.textContent = text; tooltip.style.left = `${mousePos.x + 15}px`; tooltip.style.top = `${mousePos.y + 10}px`; tooltip.style.display = 'block'; } else { tooltip.style.display = 'none'; } }
 
   // ==================================================================
-  // --- Coordinate Transformations (Simplified: No Zoom/Pan) ---
+  // --- Coordinate Transformations (Simplified) ---
   // ==================================================================
-  /** Converts screen coordinates to simulation world coordinates. (Simplified) */
   function screenToWorld(screenX, screenY) { return { x: screenX, y: screenY }; }
-  /** Converts world coordinates to grid cell indices. */
   function worldToGrid(worldX, worldY) { return { x: Math.floor(worldX / currentGridSize), y: Math.floor(worldY / currentGridSize) }; }
 
   // ==================================================================
   // --- Animation Loop & Control ---
   // ==================================================================
-  /** The main animation loop. */
   function animate() { try { updateWave(); draw(); animationFrameId = requestAnimationFrame(animate); } catch (error) { console.error("Anim loop error:", error); } }
-  /** Stops the animation loop. */
   function stopAnimation() { if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; console.log("Animation stopped."); } }
-  /** Starts the animation loop. */
   function startAnimation() { if (!animationFrameId) { console.log("Starting animation."); if (!current || !previous || !materialMap) { console.error("Cannot start: Buffers invalid."); return; } animationFrameId = requestAnimationFrame(animate); } }
 
   // ==================================================================
   // --- Event Handlers ---
   // ==================================================================
-  /** Handles interaction logic based on current tool and coordinates. */
-  function handleInteraction(worldX, worldY) { const gridCoords = worldToGrid(worldX, worldY); const gridX = gridCoords.x; const gridY = gridCoords.y; if (gridX < 0 || gridX >= cols || gridY < 0 || gridY >= rows) return; switch (currentTool) { case 'wave': generatePulse(gridX, gridY, currentPitch); break; case 'wall': paintMaterial(gridX, gridY, MATERIALS.WALL); break; case 'absorber': paintMaterial(gridX, gridY, MATERIALS.ABSORBER); break; case 'erase': paintMaterial(gridX, gridY, MATERIALS.AIR); break; case 'listener': if(isMovingListener) { listenerCenterPos = { x: gridX, y: gridY }; updateListenerPositions(); } break; } }
-  /** Generates a wave pulse at the specified grid coordinates. */
-  function generatePulse(x, y, pitch) { if (!current || !previous || !materialMap || !current[y] || !previous[y] || !materialMap[y]) return; const radius = config.pulseBaseRadius; const frequencyFactor = pitch * 0.7; for (let dy = -radius; dy <= radius; dy++) { for (let dx = -radius; dx <= radius; dx++) { const dist = Math.sqrt(dx * dx + dy * dy); if (dist <= radius) { const px = x + dx; const py = y + dy; if (px >= 0 && px < cols && py >= 0 && py < rows && current[py] && previous[py] && materialMap[py]) { if (materialMap[py][px] === MATERIALS.WALL) continue; const waveValue = Math.cos(dist * frequencyFactor * Math.PI / radius) * config.pulseStrength; const falloff = Math.cos((dist / radius) * (Math.PI / 2)); current[py][px] = (current[py][px] || 0) + waveValue * falloff; previous[py][px] = (previous[py][px] || 0) + waveValue * falloff * 0.1; current[py][px] = Math.max(-config.pulseStrength * 2, Math.min(config.pulseStrength * 2, current[py][px])); previous[py][px] = Math.max(-config.pulseStrength * 2, Math.min(config.pulseStrength * 2, previous[py][px])); } } } } }
-  /** Paints the specified material onto the grid. */
-  function paintMaterial(x, y, materialType) { if (!current || !previous || !materialMap) return; const paintRadius = currentBrushSize; const paintRadiusSq = paintRadius * paintRadius; const startX = Math.max(0, x - paintRadius); const endX = Math.min(cols - 1, x + paintRadius); const startY = Math.max(0, y - paintRadius); const endY = Math.min(rows - 1, y + paintRadius); for (let py = startY; py <= endY; py++) { if (!materialMap[py] || !current[py] || !previous[py]) continue; for (let px = startX; px <= endX; px++) { const dx = px - x; const dy = py - y; if (dx * dx + dy * dy <= paintRadiusSq) { if (px >= 0 && px < cols && py >= 0 && py < rows) { materialMap[py][px] = materialType; current[py][px] = 0; previous[py][px] = 0; } } } } }
-  /** Handles mouse down events on the canvas. */
-  function handleMouseDown(e) { mousePos = { x: e.clientX, y: e.clientY }; const controlsRect = controlsPanel.getBoundingClientRect(); const toggleRect = toggleControlsBtn.getBoundingClientRect(); if ((!controlsPanel.classList.contains('collapsed') && e.clientX >= controlsRect.left && e.clientX <= controlsRect.right && e.clientY >= controlsRect.top && e.clientY <= controlsRect.bottom) || (e.clientX >= toggleRect.left && e.clientX <= toggleRect.right && e.clientY >= toggleRect.top && e.clientY <= toggleRect.bottom)) { return; } worldMousePos = screenToWorld(mousePos.x, mousePos.y); if (currentTool === 'pan' || (e.button === 1) || (e.button === 0 && e.shiftKey)) { isPanning = true; panStart = { x: e.clientX - viewOffset.x, y: e.clientY - viewOffset.y }; canvas.style.cursor = 'grabbing'; } else if (currentTool === 'listener' && e.button === 0) { isMovingListener = true; handleInteraction(worldMousePos.x, worldMousePos.y); canvas.style.cursor = 'move'; } else if (e.button === 0) { isDrawing = true; handleInteraction(worldMousePos.x, worldMousePos.y); } if (audioContext && audioContext.state === 'suspended') { audioContext.resume().catch(err=>console.warn("Resume fail:", err)); } else if (!audioContext) { initAudio(); } }
-  /** Handles mouse move events on the canvas. */
-  function handleMouseMove(e) { mousePos = { x: e.clientX, y: e.clientY }; worldMousePos = screenToWorld(mousePos.x, mousePos.y); isMouseOverCanvas = true; if (isPanning) { viewOffset.x = e.clientX - panStart.x; viewOffset.y = e.clientY - panStart.y; } else if (isDrawing || isMovingListener) { handleInteraction(worldMousePos.x, worldMousePos.y); } }
-  /** Handles mouse up events on the canvas. */
-  function handleMouseUp(e) { if (isPanning) { isPanning = false; canvas.style.cursor = currentTool === 'pan' ? 'grab' : (canvas.style.cursor || 'default'); } if (isDrawing) { isDrawing = false; } if (isMovingListener) { isMovingListener = false; canvas.style.cursor = currentTool === 'listener' ? 'move' : (canvas.style.cursor || 'default'); } }
-  /** Handles mouse leave events from the canvas. */
-  function handleMouseLeave() { isDrawing = false; isMovingListener = false; isMouseOverCanvas = false; tooltip.style.display = 'none'; if(isPanning) canvas.style.cursor = currentTool === 'pan' ? 'grab' : (canvas.style.cursor || 'default'); isPanning = false; }
-  /** Handles mouse enter events onto the canvas. */
+  function handleInteraction(worldX, worldY) { /* ... same listener drag / draw logic ... */ const gridCoords = worldToGrid(worldX, worldY); const gridX = gridCoords.x; const gridY = gridCoords.y; if (gridX < 0 || gridX >= cols || gridY < 0 || gridY >= rows) return; if (draggingListener === 'L') { audioListenerPosL = { x: Math.max(0, Math.min(cols - 1, gridX)), y: Math.max(0, Math.min(rows - 1, gridY)) }; } else if (draggingListener === 'R') { audioListenerPosR = { x: Math.max(0, Math.min(cols - 1, gridX)), y: Math.max(0, Math.min(rows - 1, gridY)) }; } else if (isDrawing) { switch (currentTool) { case 'wave': generatePulse(gridX, gridY, currentPitch); break; case 'wall': paintMaterial(gridX, gridY, MATERIALS.WALL); break; case 'absorber': paintMaterial(gridX, gridY, MATERIALS.ABSORBER); break; case 'erase': paintMaterial(gridX, gridY, MATERIALS.AIR); break; } } }
+  function generatePulse(x, y, pitch) { /* ... same safe generatePulse ... */ if (!current || !previous || !materialMap || !current[y] || !previous[y] || !materialMap[y]) return; const radius = config.pulseBaseRadius; const frequencyFactor = pitch * 0.7; for (let dy = -radius; dy <= radius; dy++) { for (let dx = -radius; dx <= radius; dx++) { const dist = Math.sqrt(dx * dx + dy * dy); if (dist <= radius) { const px = x + dx; const py = y + dy; if (px >= 0 && px < cols && py >= 0 && py < rows && current[py] && previous[py] && materialMap[py]) { if (materialMap[py][px] === MATERIALS.WALL) continue; const waveValue = Math.cos(dist * frequencyFactor * Math.PI / radius) * config.pulseStrength; const falloff = Math.cos((dist / radius) * (Math.PI / 2)); current[py][px] = (current[py][px] || 0) + waveValue * falloff; previous[py][px] = (previous[py][px] || 0) + waveValue * falloff * 0.1; current[py][px] = Math.max(-config.pulseStrength * 2, Math.min(config.pulseStrength * 2, current[py][px])); previous[py][px] = Math.max(-config.pulseStrength * 2, Math.min(config.pulseStrength * 2, previous[py][px])); } } } } }
+  function paintMaterial(x, y, materialType) { /* ... same safe paintMaterial ... */ if (!current || !previous || !materialMap) return; const paintRadius = currentBrushSize; const paintRadiusSq = paintRadius * paintRadius; const startX = Math.max(0, x - paintRadius); const endX = Math.min(cols - 1, x + paintRadius); const startY = Math.max(0, y - paintRadius); const endY = Math.min(rows - 1, y + paintRadius); for (let py = startY; py <= endY; py++) { if (!materialMap[py] || !current[py] || !previous[py]) continue; for (let px = startX; px <= endX; px++) { const dx = px - x; const dy = py - y; if (dx * dx + dy * dy <= paintRadiusSq) { if (px >= 0 && px < cols && py >= 0 && py < rows) { materialMap[py][px] = materialType; current[py][px] = 0; previous[py][px] = 0; } } } } }
+  function handleMouseDown(e) { /* ... same listener grab / draw logic ... */ mousePos = { x: e.clientX, y: e.clientY }; const controlsRect = controlsPanel.getBoundingClientRect(); const toggleRect = toggleControlsBtn.getBoundingClientRect(); if ((!controlsPanel.classList.contains('collapsed') && e.clientX >= controlsRect.left && e.clientX <= controlsRect.right && e.clientY >= controlsRect.top && e.clientY <= controlsRect.bottom) || (e.clientX >= toggleRect.left && e.clientX <= toggleRect.right && e.clientY >= toggleRect.top && e.clientY <= toggleRect.bottom)) { return; } worldMousePos = screenToWorld(mousePos.x, mousePos.y); const clickRadius = config.listenerGrabRadius * currentGridSize; const clickRadiusSq = clickRadius * clickRadius; const distLSq = Math.pow(worldMousePos.x - (audioListenerPosL.x + 0.5) * currentGridSize, 2) + Math.pow(worldMousePos.y - (audioListenerPosL.y + 0.5) * currentGridSize, 2); const distRSq = Math.pow(worldMousePos.x - (audioListenerPosR.x + 0.5) * currentGridSize, 2) + Math.pow(worldMousePos.y - (audioListenerPosR.y + 0.5) * currentGridSize, 2); if (e.button === 0 && distLSq < clickRadiusSq) { draggingListener = 'L'; canvas.style.cursor = 'grabbing'; } else if (e.button === 0 && distRSq < clickRadiusSq) { draggingListener = 'R'; canvas.style.cursor = 'grabbing'; } else if (e.button === 0) { isDrawing = true; setActiveTool(currentTool); handleInteraction(worldMousePos.x, worldMousePos.y); } if (audioContext && audioContext.state === 'suspended') { audioContext.resume().catch(err=>console.warn("Resume fail:", err)); } else if (!audioContext) { initAudio(); } }
+  function handleMouseMove(e) { /* ... same ... */ mousePos = { x: e.clientX, y: e.clientY }; worldMousePos = screenToWorld(mousePos.x, mousePos.y); isMouseOverCanvas = true; if (isDrawing || draggingListener !== null) { handleInteraction(worldMousePos.x, worldMousePos.y); } }
+  function handleMouseUp(e) { /* ... same ... */ if (isDrawing) { isDrawing = false; } if (draggingListener !== null) { draggingListener = null; setActiveTool(currentTool); } }
+  function handleMouseLeave() { /* ... same ... */ isDrawing = false; isMouseOverCanvas = false; tooltip.style.display = 'none'; if (draggingListener !== null) { draggingListener = null; setActiveTool(currentTool); } }
   function handleMouseEnter() { isMouseOverCanvas = true; }
-  /** Handles mouse wheel events for zooming. */
-  function handleWheel(e) { e.preventDefault(); const zoomMultiplier = e.deltaY < 0 ? config.zoomFactor : 1 / config.zoomFactor; const newScale = Math.max(config.minZoom, Math.min(config.maxZoom, viewScale * zoomMultiplier)); const scaleChange = newScale / viewScale; viewOffset.x = e.clientX - (e.clientX - viewOffset.x) * scaleChange; viewOffset.y = e.clientY - (e.clientY - viewOffset.y) * scaleChange; viewScale = newScale; }
+  function handleWheel(e) { /* ... zoom state updated, but no visual effect ... */ e.preventDefault(); const zoomMultiplier = e.deltaY < 0 ? config.zoomFactor : 1 / config.zoomFactor; const newScale = Math.max(config.minZoom, Math.min(config.maxZoom, viewScale * zoomMultiplier)); const scaleChange = newScale / viewScale; viewOffset.x = e.clientX - (e.clientX - viewOffset.x) * scaleChange; viewOffset.y = e.clientY - (e.clientY - viewOffset.y) * scaleChange; /* viewScale = newScale; */ }
   /** Updates the active tool and button styles. */
-  function setActiveTool(selectedTool) { if (currentTool === 'pan' && selectedTool !== 'pan') { isPanning = false; } if (currentTool === 'listener' && selectedTool !== 'listener') { isMovingListener = false; } currentTool = selectedTool; toolButtons.forEach(btn => { const tool = btn.dataset.tool; const isActive = tool === selectedTool; btn.classList.toggle('bg-blue-600', isActive); btn.classList.toggle('hover:bg-blue-500', isActive); btn.classList.toggle('ring-1', isActive); btn.classList.toggle('ring-blue-400', isActive); btn.classList.toggle('ring-offset-1', isActive); btn.classList.toggle('ring-offset-neutral-800', isActive); btn.classList.toggle('bg-neutral-600', !isActive); btn.classList.toggle('hover:bg-neutral-500', !isActive); }); switch (selectedTool) { case 'wave': canvas.style.cursor = 'crosshair'; break; case 'wall': case 'absorber': canvas.style.cursor = 'cell'; break; case 'erase': canvas.style.cursor = 'copy'; break; case 'listener': canvas.style.cursor = 'move'; break; case 'pan': canvas.style.cursor = 'grab'; break; default: canvas.style.cursor = 'default'; } }
+  function setActiveTool(selectedTool) { /* ... same logic without Pan/Listener tools ... */ if (draggingListener !== null) { draggingListener = null; } currentTool = selectedTool; toolButtons.forEach(btn => { const tool = btn.dataset.tool; const isActive = tool === selectedTool; btn.classList.toggle('bg-blue-600', isActive); btn.classList.toggle('hover:bg-blue-500', isActive); btn.classList.toggle('ring-1', isActive); btn.classList.toggle('ring-blue-400', isActive); btn.classList.toggle('ring-offset-1', isActive); btn.classList.toggle('ring-offset-neutral-800', isActive); btn.classList.toggle('bg-neutral-600', !isActive); btn.classList.toggle('hover:bg-neutral-500', !isActive); if (isActive) { btn.classList.add('focus:outline-none', 'focus:ring-1', 'focus:ring-blue-500', 'focus:ring-offset-1', 'focus:ring-offset-neutral-800');} else {btn.classList.remove('focus:ring-1', 'focus:ring-blue-400', 'focus:ring-offset-1', 'focus:ring-offset-neutral-800'); } }); switch (selectedTool) { case 'wave': canvas.style.cursor = 'crosshair'; break; case 'wall': case 'absorber': canvas.style.cursor = 'cell'; break; case 'erase': canvas.style.cursor = 'copy'; break; default: canvas.style.cursor = 'default'; } }
 
   // ==================================================================
   // --- Event Listener Setup ---
@@ -392,13 +354,18 @@
       brushSizeSlider.addEventListener('input', (e) => { currentBrushSize = parseInt(e.target.value); brushSizeValueSpan.textContent = currentBrushSize; });
       oscillatorTypeSelect.addEventListener('change', updateOscillatorType);
       volumeSlider.addEventListener('input', updateVolume);
+      filterTypeSelect.addEventListener('change', updateFilterType);
+      filterFreqSlider.addEventListener('input', updateFilterFrequency);
+      filterQSlider.addEventListener('input', updateFilterQ);
+      audioPresetSelect.addEventListener('change', applyAudioPreset);
       toolButtons.forEach(btn => { btn.addEventListener('click', () => setActiveTool(btn.dataset.tool)); });
       clearAllBtn.addEventListener('click', () => { console.log("Clearing sim."); stopAnimation(); if(setupGrid(true)) { setActiveTool('wave'); if (isAudioEnabled) { performToggleAudioAction(); } else if (gainNodeL?.gain) { const now = audioContext?.currentTime ?? 0; gainNodeL.gain.setTargetAtTime(0, now, 0.01); gainNodeR.gain.setTargetAtTime(0, now, 0.01); } startAnimation(); } });
-      resetViewBtn.addEventListener('click', () => { console.log("Resetting view."); viewScale = 1.0; viewOffset = { x: 0, y: 0 }; });
+      // Removed resetViewBtn listener
       toggleAudioBtn.addEventListener('click', toggleAudio);
       toggleControlsBtn.addEventListener('click', () => { controlsPanel.classList.toggle('collapsed'); const isCollapsed = controlsPanel.classList.contains('collapsed'); toggleControlsBtn.textContent = isCollapsed ? '>' : '<'; toggleControlsBtn.title = isCollapsed ? 'Show Controls' : 'Hide Controls'; });
-      canvas.addEventListener('mousedown', handleMouseDown); canvas.addEventListener('mousemove', handleMouseMove); canvas.addEventListener('mouseup', handleMouseUp); canvas.addEventListener('mouseleave', handleMouseLeave); canvas.addEventListener('mouseenter', handleMouseEnter); canvas.addEventListener('wheel', handleWheel, { passive: false });
-      let resizeTimeout; window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(() => { console.log("Window resized."); stopAnimation(); viewScale = 1.0; viewOffset = { x: 0, y: 0 }; if (setupGrid(true)) { startAnimation(); } }, 250); });
+      canvas.addEventListener('mousedown', handleMouseDown); canvas.addEventListener('mousemove', handleMouseMove); canvas.addEventListener('mouseup', handleMouseUp); canvas.addEventListener('mouseleave', handleMouseLeave); canvas.addEventListener('mouseenter', handleMouseEnter);
+      canvas.addEventListener('wheel', handleWheel, { passive: false });
+      let resizeTimeout; window.addEventListener('resize', () => { clearTimeout(resizeTimeout); resizeTimeout = setTimeout(() => { console.log("Window resized."); stopAnimation(); /* viewScale = 1.0; viewOffset = { x: 0, y: 0 }; */ if (setupGrid(true)) { startAnimation(); } }, 250); });
       console.log("Event listeners attached.");
   }
 
@@ -416,22 +383,28 @@
              resolutionSlider.value = config.defaultGridSize; resolutionValueSpan.textContent = config.defaultGridSize;
              visualizationModeSelect.value = config.defaultVisMode;
              oscillatorTypeSelect.value = config.defaultOscillatorType;
+             filterTypeSelect.value = config.defaultFilterType;
+             filterFreqSlider.value = freqToSliderLog(config.defaultFilterFreq);
+             filterFreqValue.textContent = Math.round(config.defaultFilterFreq);
+             filterQSlider.value = config.defaultFilterQ; filterQValue.textContent = config.defaultFilterQ.toFixed(1);
              // Set internal state vars from config
              currentPitch = config.defaultPitch; currentBrushSize = config.defaultBrushSize;
              currentVisMode = config.defaultVisMode; currentGridSize = config.defaultGridSize;
              currentVolume = config.defaultVolume; currentOscillatorType = config.defaultOscillatorType;
-             viewScale = 1.0; viewOffset = {x:0, y:0}; // Reset view state
+             currentFilterType = config.defaultFilterType; currentFilterFreq = config.defaultFilterFreq; currentFilterQ = config.defaultFilterQ;
+             // viewScale = 1.0; viewOffset = {x:0, y:0}; // Fixed view state
 
-             // Setup grid (must succeed)
-             if(setupGrid(true)) {
+             populatePresetDropdown(); // Fill preset dropdown
+
+             if(setupGrid(true)) { // Setup grid
                  setupEventListeners(); // Attach listeners
-                 setActiveTool('wave'); // Set default tool *after* function is defined
-                 startAnimation();      // Start the loop
+                 setActiveTool('wave'); // Set default tool
+                 startAnimation(); // Start loop
                  console.log("Initialization complete.");
              } else { throw new Error("setupGrid failed during initialization."); }
         } catch (initError) { console.error("Critical initialization error:", initError); alert("Application initialization failed. Check console."); }
   }
-  // Start the application when the script loads
+  // Start
   initialize();
 
 </script>
